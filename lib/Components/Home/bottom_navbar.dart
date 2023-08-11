@@ -4,7 +4,8 @@ class BottomNavBar extends StatelessWidget {
   final int activeIndex;
   final ValueChanged<int> onTabTapped;
 
-  const BottomNavBar({Key? key, required this.activeIndex, required this.onTabTapped})
+  const BottomNavBar(
+      {Key? key, required this.activeIndex, required this.onTabTapped})
       : super(key: key);
 
   @override
@@ -21,31 +22,39 @@ class BottomNavBar extends StatelessWidget {
       child: Row(
         children: List.generate(
           3,
-          (index) => _buildNavBarButton(context, index, [
-            Icons.home,
-            Icons.healing,
-            Icons.person,
-          ][index], [
-            "Home",
-            "Diagnose",
-            "Profile",
-          ][index]),
+          (index) => _buildNavBarButton(
+              context,
+              index,
+              [
+                Icons.home,
+                Icons.healing,
+                Icons.person,
+              ][index],
+              [
+                "Home",
+                "Diagnose",
+                "Profile",
+              ][index]),
         ),
       ),
     );
   }
 
-  Widget _buildNavBarButton(BuildContext context, int index, IconData icon, String label) {
+  Widget _buildNavBarButton(
+      BuildContext context, int index, IconData icon, String label) {
     return Expanded(
       child: GestureDetector(
         onTap: () => onTabTapped(index),
         child: Container(
           decoration: BoxDecoration(
-            color: activeIndex == index ? const Color.fromARGB(255, 121, 33, 243) : Colors.transparent,
+            color: activeIndex == index
+                ? const Color(0xFF7921F3)
+                : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: activeIndex == index ? 10 : 0),
+            padding:
+                EdgeInsets.symmetric(horizontal: activeIndex == index ? 10 : 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

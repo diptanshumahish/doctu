@@ -1,4 +1,4 @@
-import 'package:doctu/Screens/homepage.dart';
+import 'package:doctu/Screens/Auth/login_page.dart';
 import 'package:flutter/material.dart';
 
 class BuildContent extends StatelessWidget {
@@ -34,7 +34,7 @@ class BuildContent extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             onPressed: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
             },
             child: const Center(child: Text("Go ahead")),
           ),
