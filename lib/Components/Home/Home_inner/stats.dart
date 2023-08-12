@@ -3,8 +3,8 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ant_design.dart';
 
 class Stats extends StatelessWidget {
-  final double weight;
-  final double height;
+  final String weight;
+  final String height;
   final double width;
   const Stats(
       {super.key,

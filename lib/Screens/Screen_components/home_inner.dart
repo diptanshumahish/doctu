@@ -1,6 +1,7 @@
 import 'package:doctu/Components/Home/Home_inner/diagnose.dart';
 import 'package:doctu/Components/Home/Home_inner/name.dart';
 import 'package:doctu/Components/Home/Home_inner/stats.dart';
+import 'package:doctu/Provider/height_weight_provider.dart';
 import 'package:doctu/Provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,6 +13,7 @@ class HomeInner extends ConsumerWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     final uref = ref.watch(userProvider);
+    final pref = ref.watch(userDataProvider);
 
     return Stack(
       children: [
@@ -32,8 +34,11 @@ class HomeInner extends ConsumerWidget {
               leading:
                   IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
             ),
-            NameCard(name: uref?.user.name ?? "Guest", width: width),
-            Stats(height: 150, weight: 80, width: width),
+            NameCard(name: pref?.name ?? "Guest", width: width),
+            Stats(
+                height: pref?.height ?? "0",
+                weight: pref?.weight ?? "0",
+                width: width),
             Diagnose(width: width),
             SliverToBoxAdapter(
               child: Padding(

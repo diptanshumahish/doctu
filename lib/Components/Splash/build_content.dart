@@ -1,12 +1,17 @@
+import 'package:doctu/Provider/user_provider.dart';
 import 'package:doctu/Screens/Auth/login_page.dart';
+import 'package:doctu/Screens/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BuildContent extends StatelessWidget {
   final double width;
-  const BuildContent({super.key, required this.width});
+  final WidgetRef ref;
+  const BuildContent({super.key, required this.width, required this.ref});
 
   @override
   Widget build(BuildContext context) {
+    final tref = ref.read(userProvider)?.idToken;
     return Padding(
       padding: EdgeInsets.all(width / 20),
       child: Column(
@@ -30,9 +35,18 @@ class BuildContent extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           InkWell(
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()));
+            onTap: () async {
+              if (tref == null) {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+              } else {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const HomeScreen()));
+              }
             },
             child: Container(
               decoration: BoxDecoration(
