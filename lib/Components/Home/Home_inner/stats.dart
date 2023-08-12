@@ -29,11 +29,11 @@ class Stats extends StatelessWidget {
                   border: Border.all(color: Colors.black),
                   color: const Color.fromARGB(255, 255, 255, 255)),
               child: Padding(
-                padding: EdgeInsets.all(18.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
@@ -43,25 +43,25 @@ class Stats extends StatelessWidget {
                           Iconify(AntDesign.bell),
                         ],
                       ),
-                      Text(
+                      const Text(
                         "Weight",
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.w600),
+                            fontSize: 20, fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        weight.toString() + "Kgs",
-                        style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.w600),
+                        "${weight}Kgs",
+                        style: const TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.w600),
                       ),
-                      Text(
+                      const Text(
                         "Height",
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.w600),
+                            fontSize: 20, fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        height.toString() + "cm",
-                        style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.w600),
+                        "${height}cm",
+                        style: const TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.w600),
                       ),
                     ]),
               ),
@@ -72,7 +72,7 @@ class Stats extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(width / 15),
                   border: Border.all(color: Colors.black),
-                  color: const Color.fromARGB(255, 229, 159, 239)),
+                  color: const Color.fromARGB(56, 119, 118, 119)),
               child: const Padding(
                 padding: EdgeInsets.all(18.0),
                 child: Column(
@@ -81,17 +81,22 @@ class Stats extends StatelessWidget {
                   children: [
                     Iconify(
                       AntDesign.smile,
+                      color: Colors.white,
                       size: 50,
                     ),
                     Text(
                       "BMI",
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
                     ),
                     Text(
                       "25.0",
-                      style:
-                          TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700),
                     )
                   ],
                 ),

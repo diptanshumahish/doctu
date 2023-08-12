@@ -42,88 +42,103 @@ class _LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFF161616),
-        body: Padding(
-          padding: EdgeInsets.all(width / 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset("Assets/Logo/logo.png"),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                "Login",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+        body: Stack(
+          children: [
+            Positioned.fill(
+                child: Image.asset(
+              "Assets/backgrounds/splash.png",
+              fit: BoxFit.cover,
+            )),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(width / 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset("Assets/Logo/trans.png"),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5),
-              const Text(
-                "Looks like you are not logged in, let's login to your dashboard, on clicking the login button you will be redirected to Auth0 login",
-                style: TextStyle(color: Colors.white, fontSize: 15),
-              ),
-              const Spacer(),
-              if (_isLoading)
-                const Center(
-                    child: CircularProgressIndicator(
-                  color: Color(0xFFBFECFA),
-                )) // Display activity progress indicator
-              else if (_credentials == null)
-                InkWell(
-                  onTap: _handleLoginTap,
+                const SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.all(width / 20),
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(width / 15),
-                      color: const Color(0xFFBFECFA),
-                    ),
+                        color: Colors.white10,
+                        borderRadius: BorderRadius.circular(width / 20)),
                     child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Center(
-                        child: Text(
-                          "Log In",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                      padding: EdgeInsets.all(18.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 5),
+                          Text(
+                            "Looks like you are not logged in, let's login to your dashboard, on clicking the login button you will be redirected to Auth0 login",
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                if (_isLoading)
+                  const Center(
+                      child: CircularProgressIndicator(
+                    color: Color(0xFFBFECFA),
+                  )) // Display activity progress indicator
+                else if (_credentials == null)
+                  Padding(
+                    padding: EdgeInsets.all(width / 20),
+                    child: InkWell(
+                      onTap: _handleLoginTap,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(width / 15),
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Center(
+                            child: Padding(
+                              padding:
+                                  EdgeInsets.symmetric(horizontal: width / 20),
+                              child: const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Log In",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Icon(Icons.login)
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              if (_credentials != null)
-                InkWell(
-                  onTap: () {
-                    _navigate(_credentials!);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(width / 15),
-                      color: const Color(0xFFBFECFA),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Center(
-                        child: Text(
-                          "Continue",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
+                if (_errorMessage.isNotEmpty)
+                  Text(
+                    _errorMessage,
+                    style: const TextStyle(color: Colors.red),
                   ),
-                ),
-              if (_errorMessage.isNotEmpty)
-                Text(
-                  _errorMessage,
-                  style: const TextStyle(color: Colors.red),
-                ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ),
     );

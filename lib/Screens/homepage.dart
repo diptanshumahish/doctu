@@ -28,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
             child: pages[_activeIndex],
           ),
           Positioned(
-            left: width/20,
-            right: width/20,
-            bottom: width/20,
+            left: _activeIndex != 1 ? width / 20 : width / 4,
+            right: _activeIndex != 1 ? width / 20 : width / 4,
+            bottom: width / 20,
             child: BottomNavBar(
               activeIndex: _activeIndex,
               onTabTapped: (index) {

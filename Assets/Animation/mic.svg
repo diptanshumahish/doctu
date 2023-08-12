@@ -1,0 +1,82 @@
+<svg
+  width="100px"
+  height="100px"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  fill="#000000"
+>
+  <!-- Microphone Base -->
+  <circle cx="50" cy="50" r="35" fill="#333" />
+
+  <!-- Microphone Stand -->
+  <rect x="48" y="10" width="4" height="40" fill="#666" />
+
+  <!-- Sound Waves Animation -->
+  <circle
+    cx="50"
+    cy="70"
+    r="5"
+    fill="#007bff"
+    opacity="0.6"
+  >
+    <animate
+      attributeName="r"
+      begin="0s"
+      dur="1s"
+      values="5; 10; 5"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      begin="0s"
+      dur="1s"
+      values="0.6; 0; 0.6"
+      repeatCount="indefinite"
+    />
+  </circle>
+  <circle
+    cx="50"
+    cy="70"
+    r="10"
+    fill="#007bff"
+    opacity="0.4"
+  >
+    <animate
+      attributeName="r"
+      begin="0s"
+      dur="1s"
+      values="10; 15; 10"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      begin="0s"
+      dur="1s"
+      values="0.4; 0; 0.4"
+      repeatCount="indefinite"
+    />
+  </circle>
+  <circle
+    cx="50"
+    cy="70"
+    r="15"
+    fill="#007bff"
+    opacity="0.2"
+  >
+    <animate
+      attributeName="r"
+      begin="0s"
+      dur="1s"
+      values="15; 20; 15"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      begin="0s"
+      dur="1s"
+      values="0.2; 0; 0.2"
+      repeatCount="indefinite"
+    />
+  </circle>
+</svg>

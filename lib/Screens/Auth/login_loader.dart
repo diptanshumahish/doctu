@@ -17,7 +17,7 @@ class Loader extends ConsumerWidget {
       _updateAndNavigate(context, ref);
     });
 
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: CircularProgressIndicator(),
       ),

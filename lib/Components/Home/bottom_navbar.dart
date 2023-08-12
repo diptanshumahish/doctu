@@ -13,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     final double width = MediaQuery.of(context).size.width;
 
     return Container(
-      height: MediaQuery.of(context).size.height / 11,
+      height: activeIndex != 1 ? MediaQuery.of(context).size.height / 11 : 50,
       width: width,
       decoration: BoxDecoration(
         color: const Color(0xFF2E2E2E),
@@ -48,7 +48,7 @@ class BottomNavBar extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: activeIndex == index
-                ? const Color(0xFF7921F3)
+                ? const Color(0xFFBFECFA)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
           ),
@@ -60,14 +60,15 @@ class BottomNavBar extends StatelessWidget {
               children: [
                 Icon(
                   icon,
-                  color: activeIndex == index ? Colors.white : Colors.grey,
+                  color: activeIndex == index ? Colors.black : Colors.grey,
                 ),
-                Text(
-                  label,
-                  style: TextStyle(
-                    color: activeIndex == index ? Colors.white : Colors.grey,
+                if (activeIndex != 1)
+                  Text(
+                    label,
+                    style: TextStyle(
+                      color: activeIndex == index ? Colors.black : Colors.grey,
+                    ),
                   ),
-                ),
               ],
             ),
           ),

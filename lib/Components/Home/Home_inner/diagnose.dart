@@ -15,7 +15,7 @@ class Diagnose extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(width / 15),
               border: Border.all(color: Colors.black),
-              color: const Color.fromARGB(255, 229, 159, 239)),
+              color: const Color.fromARGB(38, 255, 255, 255)),
           child: Padding(
             padding: const EdgeInsets.all(18.0),
             child: Stack(
@@ -31,13 +31,17 @@ class Diagnose extends StatelessWidget {
                   children: [
                     const Text(
                       "Feeling ill?",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500),
                     ),
                     const Text(
                       "Diagnose yourself with your personal medical assistant",
-                      style:
-                          TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(
                       height: 10,
@@ -51,7 +55,7 @@ class Diagnose extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "Diagnose now!",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 15),
                           ),
                         ),
                       ),
